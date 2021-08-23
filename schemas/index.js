@@ -1,4 +1,6 @@
 import { GraphQLSchema, GraphQLObjectType } from "graphql";
+import TablerQuery from "./queries/tabler.query.js";
+import TablerMutation from "./mutations/tabler.mutation.js";
 
 
 const Schema = new GraphQLSchema({
@@ -6,13 +8,13 @@ const Schema = new GraphQLSchema({
     query: new GraphQLObjectType({
         name: "RootQueryType",
         fields: {
-            name: null
+            ...TablerQuery
         }
     }),
     mutation: new GraphQLObjectType({
         name: "RootMutation",
         fields: {
-            name: null
+            ...TablerMutation
         }
     })
 });
