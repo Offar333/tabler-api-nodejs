@@ -1,4 +1,5 @@
 import express from "express";
+import dotenv from "dotenv";
 import { graphqlHTTP } from "express-graphql";
 import cors from "cors";
 import Schema from "./schemas/index.js";
@@ -12,7 +13,7 @@ app.use("/graphql", graphqlHTTP({
     graphiql: true
 }))
 
-app.listen(8080, async ()=>{
+app.listen(dotenv.config.SERVER_PORT, async ()=>{
     try{
         console.log("server online");
     }catch(err){
